@@ -1,137 +1,117 @@
-# BartsTOK — Feature-Übersicht / Feature Overview
+# 🎉 BartsTOK - Der ultimative Inaktivitäts-Verhinderer! 🎉
 
-Dieses Repository enthält die Desktop-Anwendung "BartsTOK" (WPF, .NET 9) zur Verhinderung von Inaktivität und zur Automatisierung einfacher Aktionen. Die folgende README listet alle aktuell implementierten Features sowohl auf Deutsch als auch auf Englisch.
+![BartsTOK Logo](loading.gif)
 
-## Deutsch — Implementierte Features
+[![.NET](https://img.shields.io/badge/.NET-9.0-blue.svg)](https://dotnet.microsoft.com/)
+[![WPF](https://img.shields.io/badge/WPF-Desktop-green.svg)](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-- Allgemeines
-  - WPF-Desktopanwendung (.NET 9, Ziel: net9.0-windows).
-  - Persistente Einstellungen via JSON in %APPDATA% (siehe `SettingsManager`).
+Willkommen bei **BartsTOK**! 🚀 Diese coole WPF-Anwendung für Windows (.NET 9) hält deinen Computer wach, bewegt die Maus und verhindert Bildschirm-Brand. Inspiriert von den genialen Projekten "movemouse" und "burnstok" von sgrottl. Vielen Dank an sgrottl für die Inspiration! 🙏
 
-- Hauptfunktionen (MainWindow)
-  - Start / Stop der Aktionen (UI + Hotkeys: F1=Start, F2=Stop).
-  - Tray-Icon (System Tray) mit Kontextmenü: Einstellungen, Start, Stop, Hilfe, Beenden.
-  - Minimieren in den Tray (optionale Einstellung).
-  - GIF-Animationen für Header/Loading (manuelles Frame-Handling, Fallback wenn WPF nicht automatisch animiert).
-  - Systemereignisse: Reaktion auf Session-Lock/Unlock und Power-Status (mit Optionen Pause bei Batterie).
-  - Bildschirm-Kontakt/Screen-burn-Prevention (Timer-basiert, optional).
-  - Planer / Scheduler: mehrere geplante Einträge (Start/Stop zu bestimmten Zeiten und Tagen).
-  - Optionen: AutoStart, PlannerEnabled, HideTrayIcon, TrayNotifications, ShowStatusOnMain u.v.m.
+## ✨ Features - Was kann BartsTOK?
 
-- Move Mouse Window (MoveMouseWindow)
-  - Bewegt den Mauszeiger im Kreis oder zufällig in einem Radius um ein definiertes Zentrum.
-  - Modi: Circle (kreisförmig), Random.
-  - Interpolation und Smooth-Bewegung für natürlichere Mausbewegungen.
-  - Optionen zum Klicken während der Bewegung: Linksklick, Rechtsklick, Doppelklick, einstellbare Intervalle und Klickdauer.
-  - Hotkey-Unterstützung (konfigurierbar im Fenster), Start/Stop-Buttons innerhalb des Fensters.
-  - Center setzen (aktuelle Cursor-Position als Zentrum speichern).
-  - Follow-Funktionen: FollowMouse (Zentrum folgt der Maus) und FollowWindow (Zentrum folgt einem Fenster mit Titel).
-  - Presets: Presets speichern und laden (JSON-Datei unter AppData: `MoveBart_presets.json`).
-  - Laufzeit-Optionen: TopmostWhenRunning, MinimiseWhenNotRunning, HideFromTaskbar, HideFromAltTab, OverrideTitle.
+### 🖱️ Maus-Bewegung (Move Mouse)
+- **Kreisförmige oder zufällige Bewegung**: Lass die Maus im Kreis drehen oder zufällig herumwandern.
+- **Smooth & Interpolation**: Natürliche, flüssige Bewegungen – kein roboterhaftes Zucken!
+- **Klicks während der Bewegung**: Linksklick, Rechtsklick oder Doppelklick – konfigurierbare Intervalle.
+- **Follow-Modi**: Folge der Maus oder einem bestimmten Fenster.
+- **Presets**: Speichere und lade deine Lieblings-Einstellungen (Radius, Speed, etc.).
+- **Hotkeys**: Starte/Stoppe mit einem Tastendruck.
 
-- Presets
-  - Presets enthalten Name, Radius, Speed, Mode, Click-Einstellungen, Smooth/Interpolation, Follow-Optionen.
-  - Presets werden in einer JSON-Datei im Roaming-AppData-Ordner gespeichert und geladen.
+### ⏰ Planer & Scheduler
+- **Zeitgesteuerte Aktionen**: Starte oder Stoppe automatisch zu bestimmten Zeiten.
+- **Tägliche oder wöchentliche Pläne**: Everyday oder spezifische Wochentage.
+- **Mehrere Einträge**: Erstelle so viele Schedules wie du willst.
 
-- Scheduler / ScheduleEditorWindow
-  - Schedule-Editor Fenster: Einträge mit Name, Zeit (HH:mm), Aktion (Start/Stop), Tage (Everyday oder Wochentage), Enabled.
-  - Scheduler prüft periodisch (Standard: alle 30 Sekunden) und führt Aktionen aus, wenn Zeit & Tag übereinstimmen.
+### ⚙️ Erweiterte Einstellungen
+- **Auto-Start**: Starte automatisch beim Systemstart.
+- **Tray-Icon**: Verstecke im System-Tray mit Kontextmenü.
+- **Bildschirm-Schutz**: Verhindere Screen-Burn mit Timer-basierten Bewegungen.
+- **System-Events**: Reagiere auf Lock/Unlock und Batterie-Status.
+- **Volume-Anpassung**: Passe die Lautstärke an, wenn die App läuft.
+- **Logging**: Optionale Datei-Logs für Debugging.
 
-- Advanced Settings (AdvancedSettingsWindow)
-  - Umfangreiche Konfigurationsoptionen: PlannerEnable, StopAfterMinutes, AutoStart, HideMoveMouseWindow, TopmostWhenRunning, MinimiseWhenNotRunning, HideFromTaskbar, HideFromAltTab, OverrideTitle.
-  - Behaviour-Optionen: RepeatEnabled / RepeatInterval, AutoStopOnUserActivity, LaunchMoveMouseAtStartup, StartActionsWhenMoveMouseLaunched, AdjustVolumeWhenMoveMouseRunning, AdjustVolumePercent.
-  - Fortgeschritten: ContinueWhenSessionLocked, PauseWhenOnBattery, EnableFileLogging, TrayNotifications, HideTrayIcon.
-  - Schedules-Verwaltung (Liste der `ScheduleEntry` Einträge).
+### 🎨 UI & UX
+- **Schöne WPF-Oberfläche**: Moderne, benutzerfreundliche Fenster.
+- **GIF-Animationen**: Tanzende Barts für Loading und Header! 💃🕺
+- **Minimieren & Verstecken**: Optionen zum Verstecken in Tray, Taskbar, etc.
+- **Hotkeys**: F1/F2 für schnellen Start/Stop.
 
-- Einstellungen / Persistenz (SettingsManager)
-  - Einstellungen werden als `AppSettings` serialisiert (JSON) im Ordner `%APPDATA%\BartsTOK\settings.json`.
-  - `SettingsManager.Load()` und `SettingsManager.Save()` kümmern sich um Laden/Speichern mit einfachen Fallbacks.
+## 📸 Screenshots & GIFs
 
-- Sonstige Hilfsfunktionen
-  - Volume-Adjust (via winmm) wenn aktiviert.
-  - Dateibasierte Logs (optional über EnableFileLogging).
-  - Tray-Benachrichtigungen (optional).
+Hier ein paar coole GIFs von BartsTOK in Aktion:
 
-## English — Implemented Features
+### Tanzender Bart beim Laden:
+![Tanzender Bart](loading.gif)
 
-- General
-  - WPF desktop application (.NET 9, target: net9.0-windows).
-  - Persistent settings stored as JSON in %APPDATA% (see `SettingsManager`).
+*(Das ist das gleiche GIF wie im Header – BartsTOK tanzt, während es lädt!)*
 
-- Main features (MainWindow)
-  - Start / Stop actions (UI + hotkeys: F1 = Start, F2 = Stop).
-  - System tray icon with context menu: Settings, Start, Stop, Help, Exit.
-  - Option to minimize to tray.
-  - GIF animations for header/loading (manual frame handling with fallback).
-  - Handles system events: session lock/unlock and power mode changes (with options to pause on battery).
-  - Screen burn prevention (timer-based, optional).
-  - Planner / Scheduler: multiple schedule entries (Start/Stop at configured times/days).
-  - Options: AutoStart, PlannerEnabled, HideTrayIcon, TrayNotifications, ShowStatusOnMain, etc.
+### Maus-Bewegung in Aktion:
+*(Füge hier ein GIF der Maus-Bewegung ein, wenn du eines hast.)*
 
-- Move Mouse Window (MoveMouseWindow)
-  - Moves the mouse cursor in a circle or randomly within a radius around a defined center.
-  - Modes: Circle and Random.
-  - Interpolation and smoothing for natural-looking movement.
-  - Optional clicks while moving: left, right, double click — configurable interval and down-time.
-  - Hotkey support (configurable in the window) plus Start/Stop buttons.
-  - Set center to current cursor position.
-  - Follow options: FollowMouse and FollowWindow (center follows a window by title).
-  - Presets: Save and load presets (JSON in AppData: `MoveBart_presets.json`).
-  - Runtime options: TopmostWhenRunning, MinimiseWhenNotRunning, HideFromTaskbar, HideFromAltTab, OverrideTitle.
+### Scheduler im Einsatz:
+*(Screenshot des Schedule-Editors)*
 
-- Presets
-  - Presets contain name, radius, speed, mode, click settings, smooth/interpolation, follow options.
-  - Persisted as JSON in the roaming AppData folder and reloaded on startup.
+## 🚀 Installation & Setup
 
-- Scheduler / ScheduleEditorWindow
-  - Schedule editor window: entries with Name, Time (HH:mm), Action (Start/Stop), Days (Everyday or specific weekdays), Enabled flag.
-  - Scheduler checks periodically (every ~30s) and triggers actions when time & day match.
+1. **Voraussetzungen**:
+   - Windows 10/11
+   - .NET 9 SDK (kostenlos von [Microsoft](https://dotnet.microsoft.com/download))
 
-- Advanced Settings (AdvancedSettingsWindow)
-  - Many configuration toggles: PlannerEnable, StopAfterMinutes, AutoStart, HideMoveMouseWindow, TopmostWhenRunning, MinimiseWhenNotRunning, HideFromTaskbar, HideFromAltTab, OverrideTitle.
-  - Behavior options: RepeatEnabled / RepeatInterval, AutoStopOnUserActivity, LaunchMoveMouseAtStartup, StartActionsWhenMoveMouseLaunched, AdjustVolumeWhenMoveMouseRunning, AdjustVolumePercent.
-  - Advanced: ContinueWhenSessionLocked, PauseWhenOnBattery, EnableFileLogging, TrayNotifications, HideTrayIcon.
-  - Schedules management (list of `ScheduleEntry`).
+2. **Klonen & Bauen**:
+   ```powershell
+   git clone https://github.com/iamrealguexoxo/BartsTOK.git
+   cd BartsTOK
+   dotnet build
+   ```
 
-- Settings / Persistence (SettingsManager)
-  - App settings serialized as `AppSettings` (JSON) under `%APPDATA%\BartsTOK\settings.json`.
-  - `SettingsManager.Load()` / `Save()` handle load/save with safe fallbacks.
+3. **Ausführen**:
+   ```powershell
+   dotnet run
+   ```
+   Oder öffne `BartsTOK.sln` in Visual Studio und drücke F5.
 
-- Other utilities
-  - Volume adjustment using winmm when enabled.
-  - Optional file logging (EnableFileLogging).
-  - Optional tray notifications.
+## 📖 Verwendung / Usage
 
-## Where files are stored
+### Schnellstart:
+1. Starte die App.
+2. Drücke **Start** (oder F1) im Hauptfenster.
+3. Öffne **Move Mouse** für Maus-Bewegungen.
+4. Gehe zu **Erweiterte Einstellungen** für mehr Optionen.
 
-- Application settings: `%APPDATA%\BartsTOK\settings.json` (AppSettings JSON).
-- MoveMouse presets: `%APPDATA%\MoveBart_presets.json`.
+### Tipps:
+- **Vorsichtig mit Klicks**: Die App klickt wirklich – teste in einer sicheren Umgebung!
+- **Presets speichern**: Erstelle Presets für verschiedene Szenarien (z.B. "Office" vs. "Gaming").
+- **Scheduler**: Plane Pausen oder Aktivitäten für den ganzen Tag.
 
-## Kurz-Anleitung / Quick Start
+## 🛠️ Entwicklung / Development
 
-1. Starten Sie die Anwendung (Visual Studio oder `dotnet run` mit der Lösung `BartsTOK.sln`).
-2. Im Hauptfenster: Start drücken oder F1 drücken, Stop mit Stop-Button oder F2.
-3. Öffnen Sie "Move Mouse"-Fenster, konfigurieren Sie Radius/Speed/Mode, speichern Sie Presets wenn gewünscht.
-4. Öffnen Sie "Erweiterte Einstellungen" um Planer, AutoStart, Tray-Optionen und Verhalten anzupassen.
-5. Schedules: Im Advanced Settings können Sie Zeitpläne hinzufügen/ändern (ScheduleEditorWindow).
+### Projekt-Struktur:
+- `MainWindow.xaml/cs`: Hauptfenster & Core-Logik.
+- `MoveMouseWindow.xaml/cs`: Maus-Bewegungs-Fenster.
+- `AdvancedSettingsWindow.xaml/cs`: Einstellungen-Dialog.
+- `SettingsManager.cs`: Persistenz für Einstellungen.
 
-## Build / Run
+### Beitragen:
+1. Fork das Repo.
+2. Erstelle einen Branch: `git checkout -b feature/awesome-feature`
+3. Committe deine Änderungen: `git commit -m 'Add awesome feature'`
+4. Push und erstelle einen Pull Request.
 
-- Benötigt: .NET 9 SDK (oder kompatiblen .NET SDK), Visual Studio (Windows) oder `dotnet` CLI.
-- Projekt: `BartsTOK.sln` bzw. `Barts Tok.csproj` (Zielframework: net9.0-windows).
-- Empfohlener Ablauf: Öffnen Sie die Lösung in Visual Studio und starten Sie die Anwendung für beste Integration mit WPF-Designer.
+### Bekannte Einschränkungen:
+- Scheduler prüft alle 30 Sekunden – nicht für Mikrosekunden-Genauigkeit.
+- Einige Features haben Fallbacks für robuste Fehlerbehandlung.
 
-## Hinweise / Known limitations
+## 📜 Lizenz / License
 
-- Einige Funktionen (z. B. Icon-Laden aus Ressourcen, GIF-Metadaten) haben Fallbacks und loggen Fehler still, um Abstürze zu vermeiden.
-- Scheduler prüft im 30s-Intervall; sehr genaue Timeranforderungen sind nicht implementiert.
-- Die App führt echte Eingaben (Cursor-Bewegung, Klicks) aus — verwenden Sie die Einstellungen vorsichtig, insbesondere Click-Intervalle.
+Dieses Projekt ist unter der MIT-Lizenz lizenziert. Siehe [LICENSE](LICENSE) für Details.
+
+## 🙏 Danksagung / Acknowledgments
+
+Ein großes Dankeschön an:
+- **sgrottl** für die Inspiration durch "movemouse" und "burnstok".
+- Die .NET-Community für tolle Tools und Dokumentation.
 
 ---
-## Inspiration / Danksagung
 
-- Deutsch
-  - Dieses Projekt wurde inspiriert von den Projekten "movemouse" und "burnstok" von sgrottl. Vielen Dank an sgrottl für die Ideen und die Vorarbeit, die als Grundlage und Inspiration dienten.
-
-- English
-  - This project is inspired by the projects "movemouse" and "burnstok" by sgrottl. Many thanks to sgrottl for the ideas and prior work that served as an inspiration and reference.
+**Viel Spaß mit BartsTOK!** 🎊 Wenn du Fragen hast, öffne ein Issue oder kontaktiere mich. 😊
