@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <!-- Enable Windows Forms so we can use NotifyIcon for a system tray icon -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <!-- Set application icon (placed in project root) -->
+    <ApplicationIcon>bart.ico</ApplicationIcon>
+    <!-- Project identity and runtime namespace -->
+    <AssemblyName>Barts Tok</AssemblyName>
+    <RootNamespace>BartsTOK</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Include the icon as a Resource so it can be used with a pack URI in XAML -->
+    <Resource Include="bart.ico" />
+    <!-- Loading animation used in the status area -->
+    <Resource Include="loading.gif" />
+  </ItemGroup>
+
+</Project>

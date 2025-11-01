@@ -1,0 +1,72 @@
+<Window x:Class="BartsTOK.AdvancedSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Erweiterte Einstellungen" Height="720" Width="380" WindowStartupLocation="CenterOwner"
+        Background="#1e1e1e" Foreground="White">
+    <Grid Margin="12">
+        <StackPanel>
+            <TextBlock Text="Allgemeine Einstellungen" FontWeight="Bold" Foreground="#FFD700" Margin="0,0,0,6" />
+            <CheckBox x:Name="cbPlannerEnable" Content="Planer aktivieren" Foreground="white" Margin="0,4,0,4" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,8" VerticalAlignment="Center">
+                <Label Content="Stop nach (Min):" Width="120" Foreground="white" VerticalAlignment="Center" />
+                <TextBox x:Name="txtStopAfterMinutes" Width="80" Text="0" TextAlignment="Center" Background="#333333" Foreground="white" />
+            </StackPanel>
+
+            <CheckBox x:Name="cbAutoStart" Content="Programm automatisch starten beim App-Start" Foreground="white" Margin="0,6,0,12" />
+
+            <TextBlock Text="Aussehen &amp; Verhalten (MoveMouse / UI)" FontWeight="Bold" Foreground="#FFD700" Margin="0,6,0,4" />
+            <StackPanel>
+                <CheckBox x:Name="cbHideMoveMouseWindow" Content="Hide Move Mouse window" Foreground="white" Margin="0,4,0,0" />
+                <CheckBox x:Name="cbTopmostWhenRunning" Content="Show topmost when running" Foreground="white" Margin="0,4,0,0" />
+                <CheckBox x:Name="cbMinimiseWhenNotRunning" Content="Minimise when not running" Foreground="white" Margin="0,4,0,0" />
+                <CheckBox x:Name="cbHideFromTaskbar" Content="Hide from taskbar" Foreground="white" Margin="0,4,0,0" />
+                <CheckBox x:Name="cbHideFromAltTab" Content="Hide from Alt-Tab" Foreground="white" Margin="0,4,0,0" />
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                    <Label Content="Override window title:" Width="120" Foreground="white" VerticalAlignment="Center" />
+                    <TextBox x:Name="txtOverrideTitle" Width="180" Text="" Background="#333333" Foreground="white" />
+                </StackPanel>
+                <!-- New behaviour toggles -->
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0" VerticalAlignment="Center">
+                    <CheckBox x:Name="cbRepeatEnabled" Content="Repeat actions every" Foreground="white" VerticalAlignment="Center" />
+                    <TextBox x:Name="txtRepeatInterval" Width="50" Text="30" Margin="6,0,0,0" Background="#333333" Foreground="white" />
+                    <ComboBox x:Name="cbRepeatUnit" Width="80" Margin="6,0,0,0" Background="#333333" Foreground="white">
+                        <ComboBoxItem Content="Seconds" />
+                        <ComboBoxItem Content="Minutes" />
+                    </ComboBox>
+                </StackPanel>
+                <CheckBox x:Name="cbAutoStopOnUserActivity" Content="Automatically stop when user activity detected" Foreground="white" Margin="0,6,0,0" />
+                <CheckBox x:Name="cbLaunchMoveMouseAtStartup" Content="Launch Move Mouse at start-up" Foreground="white" Margin="0,6,0,0" />
+                <CheckBox x:Name="cbStartActionsWhenMoveLaunched" Content="Start actions when Move Mouse is launched" Foreground="white" Margin="0,6,0,0" />
+                <StackPanel Orientation="Horizontal" Margin="0,6,0,0" VerticalAlignment="Center">
+                    <CheckBox x:Name="cbAdjustVolume" Content="Adjust volume when Move Mouse is running" Foreground="white" VerticalAlignment="Center" />
+                    <Label Content="%:" Foreground="white" Margin="6,0,0,0" VerticalAlignment="Center" />
+                    <TextBox x:Name="txtAdjustVolumePercent" Width="50" Text="80" Margin="6,0,0,0" Background="#333333" Foreground="white" />
+                </StackPanel>
+                <CheckBox x:Name="cbContinueWhenLocked" Content="Continue performing actions when session is locked" Foreground="white" Margin="0,6,0,0" />
+                <CheckBox x:Name="cbPauseOnBattery" Content="Pause when running on battery" Foreground="white" Margin="0,6,0,0" />
+                <CheckBox x:Name="cbEnableFileLogging" Content="Enable file logging" Foreground="white" Margin="0,6,0,0" />
+                <CheckBox x:Name="cbScreenBurnPrevention" Content="Enable screen burn prevention" Foreground="white" Margin="0,6,0,0" />
+                <CheckBox x:Name="cbHideTrayIcon" Content="Hide system tray icon" Foreground="white" Margin="0,6,0,0" />
+                <CheckBox x:Name="cbTrayNotifications" Content="Show system tray notifications" Foreground="white" Margin="0,6,0,0" />
+                <CheckBox x:Name="cbShowStatusOnMain" Content="Show current status on main window" Foreground="white" Margin="0,6,0,0" />
+                <CheckBox x:Name="cbDisableButtonAnimations" Content="Disable button animations" Foreground="white" Margin="0,6,0,0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
+                <Button x:Name="btnCancel" Content="Abbrechen" Width="90" Margin="6,0,0,0" Click="BtnCancel_Click" />
+                <Button x:Name="btnOk" Content="OK" Width="90" Margin="6,0,0,0" Click="BtnOk_Click" />
+            </StackPanel>
+            
+            <TextBlock Text="Planer: Zeitpläne" FontWeight="Bold" Foreground="#FFD700" Margin="0,8,0,4" />
+            <StackPanel Orientation="Horizontal">
+                <ListBox x:Name="lstSchedules" Width="220" Height="100" Background="#333333" Foreground="White" />
+                <StackPanel Margin="8,0,0,0">
+                    <Button x:Name="btnAddSchedule" Content="Add" Width="80" Margin="0,0,0,6" Click="BtnAddSchedule_Click" />
+                    <Button x:Name="btnEditSchedule" Content="Edit" Width="80" Margin="0,0,0,6" Click="BtnEditSchedule_Click" />
+                    <Button x:Name="btnRemoveSchedule" Content="Remove" Width="80" Click="BtnRemoveSchedule_Click" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

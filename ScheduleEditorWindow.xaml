@@ -1,0 +1,40 @@
+<Window x:Class="BartsTOK.ScheduleEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Schedule entry" Height="300" Width="360" WindowStartupLocation="CenterOwner" Background="#1e1e1e" Foreground="White">
+    <Grid Margin="10">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <Label Content="Name:" Width="80" VerticalAlignment="Center" />
+                <TextBox x:Name="txtName" Width="220" Background="#333" Foreground="White" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <Label Content="Time (HH:mm):" Width="80" VerticalAlignment="Center" />
+                <TextBox x:Name="txtTime" Width="80" Text="00:00" Background="#333" Foreground="White" />
+                <Label Content="Action:" Width="60" Margin="8,0,0,0" VerticalAlignment="Center" />
+                <ComboBox x:Name="cbAction" Width="100" Background="#333" Foreground="White">
+                    <ComboBoxItem Content="Start" />
+                    <ComboBoxItem Content="Stop" />
+                </ComboBox>
+            </StackPanel>
+
+            <TextBlock Text="Days:" Margin="0,6,0,4" />
+            <WrapPanel>
+                <CheckBox x:Name="cbEveryday" Content="Everyday" Margin="4" />
+                <CheckBox x:Name="cbMon" Content="Mon" Margin="4" />
+                <CheckBox x:Name="cbTue" Content="Tue" Margin="4" />
+                <CheckBox x:Name="cbWed" Content="Wed" Margin="4" />
+                <CheckBox x:Name="cbThu" Content="Thu" Margin="4" />
+                <CheckBox x:Name="cbFri" Content="Fri" Margin="4" />
+                <CheckBox x:Name="cbSat" Content="Sat" Margin="4" />
+                <CheckBox x:Name="cbSun" Content="Sun" Margin="4" />
+            </WrapPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+                <Button x:Name="btnCancel" Content="Cancel" Width="90" Margin="6,0,0,0" Click="BtnCancel_Click" />
+                <Button x:Name="btnOk" Content="OK" Width="90" Margin="6,0,0,0" Click="BtnOk_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

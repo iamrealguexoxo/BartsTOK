@@ -1,0 +1,113 @@
+<Window x:Class="BartsTOK.MoveMouseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MoveBart" Height="420" Width="700"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Visual area with Bart in the center -->
+        <Border Grid.Column="0" Background="#FFF" BorderBrush="#DDD" BorderThickness="1" CornerRadius="6">
+            <Grid x:Name="visualArea">
+                <Canvas x:Name="canvas" Background="Transparent">
+                    <!-- center marker -->
+                    <StackPanel x:Name="centerMarker" Width="96" Height="96" RenderTransformOrigin="0.5,0.5">
+                        <Border Width="96" Height="96" CornerRadius="48" Background="#222" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid>
+                                <TextBlock Text="BART" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Canvas>
+            </Grid>
+        </Border>
+
+        <!-- Right side: Tabbed controls (Basic / Advanced) -->
+        <TabControl Grid.Column="1" Margin="12,0,0,0">
+            <TabItem Header="Basic">
+                <StackPanel Margin="8">
+                    <TextBlock Text="MoveBart - Controls" FontSize="16" FontWeight="Bold" Margin="0,0,0,8" />
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,8">
+                        <Button x:Name="btnStartMove" Content="Start" Width="84" Click="BtnStartMove_Click" />
+                        <Button x:Name="btnStopMove" Content="Stop" Width="84" Margin="8,0,0,0" Click="BtnStopMove_Click" IsEnabled="False" />
+                        <Button x:Name="btnCenterHere" Content="Zentrum setzen" Width="110" Margin="8,0,0,0" Click="BtnCenterHere_Click" />
+                    </StackPanel>
+
+                    <TextBlock Text="Radius (px)" />
+                    <Slider x:Name="sldRadius" Minimum="0" Maximum="600" Value="120" TickFrequency="10" IsSnapToTickEnabled="False" Margin="0,2,0,8" />
+                    <TextBlock Text="Speed" />
+                    <Slider x:Name="sldSpeed" Minimum="1" Maximum="100" Value="40" Margin="0,2,0,8" />
+
+                    <TextBlock Text="Mode" />
+                    <StackPanel Orientation="Horizontal" Margin="0,2,0,8">
+                        <RadioButton x:Name="rbCircle" Content="Kreis" IsChecked="True" GroupName="mode" Margin="0,0,12,0"/>
+                        <RadioButton x:Name="rbRandom" Content="Zufall" GroupName="mode"/>
+                    </StackPanel>
+
+                    <CheckBox x:Name="cbClickOnMove" Content="Bei Bewegung klicken" Margin="0,6,0,4"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="Klick-Intervall (ms):" VerticalAlignment="Center" />
+                        <TextBox x:Name="txtClickInterval" Text="1000" Width="80" Margin="6,0,0,0" />
+                    </StackPanel>
+
+                    <Separator Margin="0,4,0,8" />
+
+                    <TextBlock Text="Log" FontWeight="Bold" />
+                    <ListBox x:Name="lstLog" Height="140" Margin="0,6,0,0" />
+
+                    <TextBlock Text="Hinweis: Das Fenster sollte sichtbar bleiben, damit 'BART' sichtbar ist. Die Maus wird im Screen-Bereich bewegt." FontSize="11" Foreground="#666" TextWrapping="Wrap" Margin="0,8,0,0" />
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Advanced">
+                <StackPanel Margin="8">
+                    <TextBlock Text="Advanced Options" FontSize="14" FontWeight="Bold" Margin="0,0,0,8" />
+
+                    <CheckBox x:Name="cbSmooth" Content="Smooth / Eased Movement" Margin="0,4,0,4" />
+                    <CheckBox x:Name="cbInterpolation" Content="Interpolated Random Targets" Margin="0,4,0,8" />
+
+                    <TextBlock Text="Follow Mode" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                        <CheckBox x:Name="cbFollowMouse" Content="Folge der Maus (Center folgt Maus)" Margin="0,0,8,0" />
+                        <CheckBox x:Name="cbFollowWindow" Content="Folge Fenster (Titel)" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="Fenstertitel:" VerticalAlignment="Center" />
+                        <TextBox x:Name="txtFollowWindowTitle" Width="160" Margin="6,0,0,0" />
+                    </StackPanel>
+
+                    <TextBlock Text="Click Type" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                        <RadioButton x:Name="rbClickLeft" Content="Links" IsChecked="True" GroupName="clickType" Margin="0,0,8,0"/>
+                        <RadioButton x:Name="rbClickRight" Content="Rechts" GroupName="clickType" Margin="0,0,8,0"/>
+                        <RadioButton x:Name="rbClickDouble" Content="Doppelklick" GroupName="clickType"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="Klick-Dauer (ms):" VerticalAlignment="Center" />
+                        <TextBox x:Name="txtClickDownMs" Text="30" Width="60" Margin="6,0,0,0" />
+                    </StackPanel>
+
+                    <TextBlock Text="Hotkey (when window focused)" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                        <TextBlock Text="Stop/Resume Key:" VerticalAlignment="Center" />
+                        <TextBox x:Name="txtHotkey" Text="F12" Width="80" Margin="6,0,0,0" />
+                    </StackPanel>
+
+                    <Separator Margin="0,4,0,8" />
+
+                    <TextBlock Text="Presets" FontWeight="Bold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,6,0,6">
+                        <TextBox x:Name="txtPresetName" Width="140" />
+                        <Button x:Name="btnSavePreset" Content="Save" Width="64" Margin="6,0,0,0" Click="BtnSavePreset_Click" />
+                        <Button x:Name="btnLoadPreset" Content="Load" Width="64" Margin="6,0,0,0" Click="BtnLoadPreset_Click" />
+                    </StackPanel>
+                    <ListBox x:Name="lstPresets" Height="100" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
