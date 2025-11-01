@@ -6,6 +6,12 @@
 [![WPF](https://img.shields.io/badge/WPF-Desktop-green.svg)](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+## 📝 Kurze Beschreibung / Short Description
+
+**Deutsch:** BartsTOK ist eine WPF-App für Windows, die deinen PC wach hält, die Maus bewegt und Bildschirm-Brand verhindert. Mit tanzenden Barts-GIFs und vielen Features!
+
+**English:** BartsTOK is a WPF app for Windows that keeps your PC awake, moves the mouse, and prevents screen burn. Featuring dancing Bart GIFs and tons of features!
+
 Willkommen bei **BartsTOK**! 🚀 Diese coole WPF-Anwendung für Windows (.NET 9) hält deinen Computer wach, bewegt die Maus und verhindert Bildschirm-Brand. Inspiriert von den genialen Projekten "movemouse" und "burnstok" von sgrottl. Vielen Dank an sgrottl für die Inspiration! 🙏
 
 ## ✨ Features - Was kann BartsTOK?
@@ -39,10 +45,13 @@ Willkommen bei **BartsTOK**! 🚀 Diese coole WPF-Anwendung für Windows (.NET 9
 
 ## 📸 Screenshots & GIFs
 
-Hier ein paar coole GIFs von BartsTOK in Aktion:
+Hier ein paar coole GIFs und Screenshots von BartsTOK in Aktion:
 
 ### Tanzender Bart beim Laden:
 ![Tanzender Bart](loading.gif)
+
+### Screenshot der App:
+![BartsTOK Screenshot](screenshot.png)
 
 *(Das ist das gleiche GIF wie im Header – BartsTOK tanzt, während es lädt!)*
 
