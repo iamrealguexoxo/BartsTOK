@@ -128,4 +128,12 @@ Dieses Repository enthält die Desktop-Anwendung "BartsTOK" (WPF, .NET 9) zur Ve
 - Die App führt echte Eingaben (Cursor-Bewegung, Klicks) aus — verwenden Sie die Einstellungen vorsichtig, insbesondere Click-Intervalle.
 
 ---
+## Inspiration / Danksagung
+
+- Deutsch
+  - Dieses Projekt wurde inspiriert von den Projekten "movemouse" und "burnstok" von sgrottl. Vielen Dank an sgrottl für die Ideen und die Vorarbeit, die als Grundlage und Inspiration dienten.
+
+- English
+  - This project is inspired by the projects "movemouse" and "burnstok" by sgrottl. Many thanks to sgrottl for the ideas and prior work that served as an inspiration and reference.
+
 Wenn Sie möchten, kann ich diese README noch erweitern (Screenshots, detaillierte UI-Dokumentation, Anleitung für Entwickler oder Unit-Tests). Sollen wir noch ein kurzes „How to develop / build“ mit VS-spezifischen Schritten hinzufügen?
