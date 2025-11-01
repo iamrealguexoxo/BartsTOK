@@ -1,0 +1,26 @@
+c:\Users\Admin\automation_tool\Barts Tok\bin\Debug\net9.0-windows\Barts Tok.exe
+c:\Users\Admin\automation_tool\Barts Tok\bin\Debug\net9.0-windows\Barts Tok.deps.json
+c:\Users\Admin\automation_tool\Barts Tok\bin\Debug\net9.0-windows\Barts Tok.runtimeconfig.json
+c:\Users\Admin\automation_tool\Barts Tok\bin\Debug\net9.0-windows\Barts Tok.dll
+c:\Users\Admin\automation_tool\Barts Tok\bin\Debug\net9.0-windows\Barts Tok.pdb
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\AdvancedSettingsWindow.baml
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\MainWindow.baml
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\MoveMouseWindow.baml
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\ScheduleEditorWindow.baml
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\AdvancedSettingsWindow.g.cs
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\MainWindow.g.cs
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\MoveMouseWindow.g.cs
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\ScheduleEditorWindow.g.cs
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\App.g.cs
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok_MarkupCompile.cache
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok.g.resources
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok.AssemblyInfoInputs.cache
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok.AssemblyInfo.cs
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok.csproj.CoreCompileInputs.cache
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok.sourcelink.json
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok.dll
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\refint\Barts Tok.dll
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok.pdb
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\Barts Tok.genruntimeconfig.cache
+c:\Users\Admin\automation_tool\Barts Tok\obj\Debug\net9.0-windows\ref\Barts Tok.dll
