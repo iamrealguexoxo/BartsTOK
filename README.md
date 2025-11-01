@@ -53,13 +53,7 @@ Hier ein paar coole GIFs und Screenshots von BartsTOK in Aktion:
 ### Screenshot der App:
 ![BartsTOK Screenshot](screenshot.png)
 
-*(Das ist das gleiche GIF wie im Header – BartsTOK tanzt, während es lädt!)*
 
-### Maus-Bewegung in Aktion:
-*(Füge hier ein GIF der Maus-Bewegung ein, wenn du eines hast.)*
-
-### Scheduler im Einsatz:
-*(Screenshot des Schedule-Editors)*
 
 ## 🚀 Installation & Setup
 
