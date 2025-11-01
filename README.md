@@ -2,7 +2,7 @@
 
 Dieses Repository enthält die Desktop-Anwendung "BartsTOK" (WPF, .NET 9) zur Verhinderung von Inaktivität und zur Automatisierung einfacher Aktionen. Die folgende README listet alle aktuell implementierten Features sowohl auf Deutsch als auch auf Englisch.
 
-## Deutsch — Implementierte Features
+## Deutsch — Implementierte Features 
 
 - Allgemeines
   - WPF-Desktopanwendung (.NET 9, Ziel: net9.0-windows).
