@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Barts Tok")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34c18e86995efb3f47db06f393f9884cd9ce9c63")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f50afe8602baf20db56641728fbaa0503286b9d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Barts Tok")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Barts Tok")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
