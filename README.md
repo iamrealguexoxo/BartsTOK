@@ -14,6 +14,12 @@
 
 Willkommen bei **BartsTOK**! 🚀 Diese coole WPF-Anwendung für Windows (.NET 9) hält deinen Computer wach, bewegt die Maus und verhindert Bildschirm-Brand. Inspiriert von den genialen Projekten "movemouse" und "burnstok" von sgrottl. Vielen Dank an sgrottl für die Inspiration! 🙏
 
+## 🔄 Neueste Änderungen / Latest changes
+
+<!-- CHANGELOG:START -->
+Noch keine eingebetteten Einträge. Siehe vollständige Historie in [CHANGELOG.md](CHANGELOG.md).
+<!-- CHANGELOG:END -->
+
 ## ✨ Features - Was kann BartsTOK?
 
 ### 🖱️ Maus-Bewegung (Move Mouse)

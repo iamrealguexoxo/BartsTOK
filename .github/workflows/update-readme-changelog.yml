@@ -1,0 +1,79 @@
+name: update-readme-changelog
+
+on:
+  push:
+    paths:
+      - 'CHANGELOG.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Extract latest changelog and update README
+        shell: pwsh
+        run: |
+          Set-StrictMode -Version Latest
+          $ErrorActionPreference = 'Stop'
+
+          if (-not (Test-Path 'CHANGELOG.md')) { throw 'CHANGELOG.md not found' }
+          if (-not (Test-Path 'README.md')) { throw 'README.md not found' }
+
+          $cl = Get-Content 'CHANGELOG.md' -Raw
+          # Find first level-2 heading (## ...) as the start of latest section
+          $startMatch = [regex]::Match($cl, "(?m)^## ")
+          if ($startMatch.Success) {
+            $startIdx = $startMatch.Index
+            # Find next level-2 heading after start
+            $rest = $cl.Substring($startIdx + 1)
+            $nextMatch = [regex]::Match($rest, "(?m)^## ")
+            if ($nextMatch.Success) {
+              $endIdx = $startIdx + 1 + $nextMatch.Index
+              $latest = $cl.Substring($startIdx, $endIdx - $startIdx)
+            } else {
+              $latest = $cl.Substring($startIdx)
+            }
+          } else {
+            # Fallback: take top 200 lines
+            $latest = ($cl -split "\r?\n")[0..([Math]::Min(199, ($cl -split "\r?\n").Length - 1))] -join "`n"
+          }
+
+          # Trim trailing whitespace
+          $latest = $latest.Trim()
+
+          $readme = Get-Content 'README.md' -Raw
+          $startMarker = '<!-- CHANGELOG:START -->'
+          $endMarker = '<!-- CHANGELOG:END -->'
+
+          if ($readme.Contains($startMarker) -and $readme.Contains($endMarker)) {
+            $pattern = '(?s)<!-- CHANGELOG:START -->.*?<!-- CHANGELOG:END -->'
+            $replacement = "<!-- CHANGELOG:START -->`n$latest`n<!-- CHANGELOG:END -->"
+            $updated = [regex]::Replace($readme, $pattern, $replacement)
+          } else {
+            # Append section if markers missing
+            $section = "`n## 🔄 Neueste Änderungen / Latest changes`n`n$startMarker`n$latest`n$endMarker`n"
+            $updated = $readme + "`n" + $section
+          }
+
+          if ($updated -ne $readme) {
+            Set-Content -Path 'README.md' -Value $updated -NoNewline
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            if (git diff --cached --quiet) {
+              Write-Host 'No README changes to commit.'
+            } else {
+              git commit -m "docs(readme): update latest changes section from CHANGELOG"
+              git push
+            }
+          } else {
+            Write-Host 'README already up to date.'
+          }
