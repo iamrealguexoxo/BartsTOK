@@ -85,3 +85,6 @@ out/
 .scripts/
 # Common typo fallback
 .scipts/
+
+# Repository scripts folder (use CI in workflow instead)
+scripts/
