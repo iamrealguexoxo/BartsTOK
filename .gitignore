@@ -80,3 +80,8 @@ out/
 # Local tooling
 .toolstarget
 .history/
+
+# Local scripts (hidden)
+.scripts/
+# Common typo fallback
+.scipts/
