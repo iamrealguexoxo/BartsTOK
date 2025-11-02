@@ -47,9 +47,6 @@ Willkommen bei **BartsTOK**! 🚀 Diese coole WPF-Anwendung für Windows (.NET 9
 
 Hier ein paar coole GIFs und Screenshots von BartsTOK in Aktion:
 
-### Tanzender Bart beim Laden:
-![Tanzender Bart](loading.gif)
-
 ### Screenshot der App:
 ![BartsTOK Screenshot](screenshot.png)
 
