@@ -18,12 +18,24 @@ if (-not (Test-Path $proj)) { throw "Projektdatei nicht gefunden: $proj" }
 
 # Resolve version
 if (-not $Version) {
-    # Try from csproj <Version>
+    # Try from csproj <Version> (search all PropertyGroup nodes)
     try {
-        [xml]$csproj = Get-Content $proj -Raw
-        $verNode = $csproj.Project.PropertyGroup.Version
-        if ($verNode -and $verNode.Trim()) { $Version = $verNode.Trim() }
-    } catch {}
+        [xml]$csproj = Get-Content $proj -Raw -ErrorAction Stop
+        # Use XPath to find any <Version> under any <PropertyGroup>
+        $versionNodes = $csproj.SelectNodes('//Project/PropertyGroup/Version')
+        if ($versionNodes -and $versionNodes.Count -gt 0) {
+            foreach ($node in $versionNodes) {
+                $val = [string]$node.InnerText
+                if ($val -and $val.Trim()) { $Version = $val.Trim(); break }
+            }
+        }
+        if (-not $Version) {
+            Write-Warning "No <Version> element with a value found in '$proj'. Will try tag (GITHUB_REF_NAME) or fallback."
+        }
+    } catch {
+        Write-Error "Failed to read/parse project file '$proj': $($_.Exception.Message)"
+        exit 1
+    }
 }
 if (-not $Version) {
     # Try from tag (CI)
