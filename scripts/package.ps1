@@ -12,7 +12,33 @@ $ErrorActionPreference = 'Stop'
 function Write-Info($msg){ Write-Host "[INFO] $msg" -ForegroundColor Cyan }
 function Write-Ok($msg){ Write-Host "[ OK ] $msg" -ForegroundColor Green }
 
-$root = Split-Path -Parent $MyInvocation.MyCommand.Path | Split-Path -Parent
+# Resolve script directory robustly (handles dot-sourcing / null MyInvocation.MyCommand.Path)
+$scriptDir = $null
+if ($MyInvocation -and $MyInvocation.MyCommand -and -not [string]::IsNullOrWhiteSpace($MyInvocation.MyCommand.Path)) {
+    $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+} elseif (-not [string]::IsNullOrWhiteSpace($PSCommandPath)) {
+    $scriptDir = Split-Path -Parent $PSCommandPath
+} elseif (-not [string]::IsNullOrWhiteSpace($PSScriptRoot)) {
+    # $PSScriptRoot is already a directory
+    $scriptDir = $PSScriptRoot
+}
+
+if (-not $scriptDir) {
+    Write-Error "Unable to determine script directory (MyInvocation.MyCommand.Path, PSCommandPath, and PSScriptRoot are empty)."
+    exit 1
+}
+if (-not (Test-Path -LiteralPath $scriptDir)) {
+    Write-Error "Resolved script directory does not exist: $scriptDir"
+    exit 1
+}
+
+# Project root is parent of the scripts directory
+try {
+    $root = Split-Path -Parent $scriptDir
+} catch {
+    Write-Error "Failed to compute project root from '$scriptDir': $($_.Exception.Message)"
+    exit 1
+}
 $proj = Join-Path $root "Barts Tok.csproj"
 if (-not (Test-Path $proj)) { throw "Projektdatei nicht gefunden: $proj" }
 
