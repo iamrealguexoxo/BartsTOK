@@ -112,6 +112,18 @@ namespace BartsTOK
                 var miHelp = new WinForms.ToolStripMenuItem("Hilfe Anzeigen ...");
                 miHelp.Click += (s, e) => System.Windows.MessageBox.Show("Hilfe (Platzhalter)", "Hilfe");
 
+                var miAbout = new WinForms.ToolStripMenuItem("Über ...");
+                miAbout.Click += (s, e) =>
+                {
+                    try
+                    {
+                        var w = new AboutWindow();
+                        w.Owner = this;
+                        w.ShowDialog();
+                    }
+                    catch { }
+                };
+
                 var miExit = new WinForms.ToolStripMenuItem("Beenden");
                 miExit.Click += (s, e) =>
                 {
@@ -130,6 +142,7 @@ namespace BartsTOK
                 context.Items.Add(miStop);
                 context.Items.Add(new WinForms.ToolStripSeparator());
                 context.Items.Add(miHelp);
+                context.Items.Add(miAbout);
                 context.Items.Add(new WinForms.ToolStripSeparator());
                 context.Items.Add(miExit);
 
@@ -355,6 +368,17 @@ namespace BartsTOK
                         // optionally resume if user wants - we won't auto-resume to avoid surprises
                     }
                 }
+            }
+            catch { }
+        }
+
+        private void BtnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var w = new AboutWindow();
+                w.Owner = this;
+                w.ShowDialog();
             }
             catch { }
         }

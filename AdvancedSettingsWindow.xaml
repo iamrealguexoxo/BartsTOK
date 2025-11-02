@@ -1,7 +1,7 @@
 <Window x:Class="BartsTOK.AdvancedSettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Erweiterte Einstellungen" Height="720" Width="380" WindowStartupLocation="CenterOwner"
+    Title="Erweiterte Einstellungen (experimental)" Height="720" Width="380" WindowStartupLocation="CenterOwner"
         Background="#1e1e1e" Foreground="White">
     <Grid Margin="12">
         <StackPanel>

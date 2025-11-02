@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\BartsTOK\obj\Debug\net9.0-windows\
+c:\BartsTOK\obj\Debug\net9.0-windows\
 BartsTOK
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\BartsTOK\App.xaml
-41411753536
+c:\BartsTOK\App.xaml
+5-1666692629
 
-8-1715755423
+91197626056
 2101901207146
-AdvancedSettingsWindow.xaml;MainWindow.xaml;MoveMouseWindow.xaml;ScheduleEditorWindow.xaml;
+AboutWindow.xaml;AdvancedSettingsWindow.xaml;MainWindow.xaml;MoveMouseWindow.xaml;ScheduleEditorWindow.xaml;
 
 False
 

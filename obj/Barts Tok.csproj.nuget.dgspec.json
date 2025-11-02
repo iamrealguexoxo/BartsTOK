@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\BartsTOK\\Barts Tok.csproj": {}
+    "c:\\BartsTOK\\Barts Tok.csproj": {}
   },
   "projects": {
-    "C:\\BartsTOK\\Barts Tok.csproj": {
+    "c:\\BartsTOK\\Barts Tok.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\BartsTOK\\Barts Tok.csproj",
+        "projectUniqueName": "c:\\BartsTOK\\Barts Tok.csproj",
         "projectName": "Barts Tok",
-        "projectPath": "C:\\BartsTOK\\Barts Tok.csproj",
+        "projectPath": "c:\\BartsTOK\\Barts Tok.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\BartsTOK\\obj\\",
+        "outputPath": "c:\\BartsTOK\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

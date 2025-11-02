@@ -1,0 +1,74 @@
+# --- Core build output ---
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+**/x64/
+**/x86/
+**/arm/
+**/arm64/
+**/TestResults/
+
+# Visual Studio / IDE
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# ReSharper / Rider / NCrunch
+_ReSharper*/
+*.ReSharper
+*.DotSettings.user
+*.ncrunch*
+
+# Generated code (WPF, designer, etc.)
+*.g.cs
+*.g.i.cs
+*.designer.cs
+*.baml
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+*.nuspec
+project.lock.json
+*.nuget.props
+*.nuget.targets
+
+# Logs / caches / temp
+*.log
+*.tlog
+*.cache
+*.tmp
+*.dmp
+*.etl
+
+# Misc system files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Symbols / coverage
+*.pdb
+*.svclog
+TestResult*/
+coverage*/
+*.coverage
+*.coveragexml
+
+# Publish artifacts
+artifacts/
+dist/
+publish/
+
+# Rider/JetBrains HTTP requests
+.idea/httpRequests/
+
+# Local tooling
+.toolstarget
+.history/

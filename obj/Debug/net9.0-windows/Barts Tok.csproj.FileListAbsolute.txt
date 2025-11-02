@@ -50,3 +50,5 @@ C:\BartsTOK\obj\Debug\net9.0-windows\refint\Barts Tok.dll
 C:\BartsTOK\obj\Debug\net9.0-windows\Barts Tok.pdb
 C:\BartsTOK\obj\Debug\net9.0-windows\Barts Tok.genruntimeconfig.cache
 C:\BartsTOK\obj\Debug\net9.0-windows\ref\Barts Tok.dll
+c:\BartsTOK\obj\Debug\net9.0-windows\AboutWindow.baml
+c:\BartsTOK\obj\Debug\net9.0-windows\AboutWindow.g.cs

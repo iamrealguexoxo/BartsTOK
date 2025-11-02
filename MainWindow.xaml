@@ -145,7 +145,10 @@
                              BorderBrush="#FFD700" BorderThickness="1" Foreground="#00FF00"/>
                 </Expander>
                 <!-- Advanced settings moved to a separate dialog -->
-                <Button x:Name="btnAdvancedSettings" Content="Erweiterte Einstellungen" Width="190" Height="28" Margin="0,12,0,0" HorizontalAlignment="Left" Click="BtnAdvancedSettings_Click" />
+                <StackPanel Orientation="Horizontal" Margin="0,12,0,0" HorizontalAlignment="Left">
+                    <Button x:Name="btnAdvancedSettings" Content="Erweiterte Einstellungen" Width="190" Height="28" Click="BtnAdvancedSettings_Click" />
+                    <Button x:Name="btnAbout" Content="Über" Width="90" Height="28" Margin="8,0,0,0" Click="BtnAbout_Click" />
+                </StackPanel>
             </StackPanel>
         </Border>
     </DockPanel>
