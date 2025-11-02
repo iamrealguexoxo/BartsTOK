@@ -1,0 +1,65 @@
+name: package-and-release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  build-package:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Compute version from ref
+        shell: pwsh
+        run: |
+          $ref = "${{ github.ref_name }}"
+          if (-not $ref) { $ref = "0.1.0" }
+          $v = $ref.TrimStart('v')
+          echo "VERSION=$v" | Out-File -FilePath $Env:GITHUB_ENV -Encoding ascii -Append
+
+      - name: Package (WPF)
+        shell: pwsh
+        run: |
+          ./scripts/package.ps1 -Configuration Release -Runtime win-x64 -SelfContained -Version $Env:VERSION
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: BartsTOK-${{ env.VERSION }}-windows-x64
+          path: dist/*
+
+  release-upload:
+    if: github.event_name == 'release'
+    needs: build-package
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: BartsTOK-${{ github.ref_name }}-windows-x64
+          path: dist
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.zip
+            dist/*.sha256
+            dist/*.sha512
+            dist/checksums.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

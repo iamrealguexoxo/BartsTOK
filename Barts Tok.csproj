@@ -13,6 +13,8 @@
     <!-- Project identity and runtime namespace -->
     <AssemblyName>Barts Tok</AssemblyName>
     <RootNamespace>BartsTOK</RootNamespace>
+    <!-- Semantic version used for packaging and file naming -->
+    <Version>1.0.0-alpha</Version>
   </PropertyGroup>
 
   <ItemGroup>
