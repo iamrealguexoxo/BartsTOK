@@ -4,23 +4,88 @@
 
 [![.NET](https://img.shields.io/badge/.NET-9.0-blue.svg)](https://dotnet.microsoft.com/)
 [![WPF](https://img.shields.io/badge/WPF-Desktop-green.svg)](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Qt](https://img.shields.io/badge/Qt-QML-green.svg)](https://www.qt.io/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## 📝 Kurze Beschreibung / Short Description
 
-**Deutsch:** BartsTOK ist eine WPF-App für Windows, die deinen PC wach hält, die Maus bewegt und Bildschirm-Brand verhindert. Mit tanzenden Barts-GIFs und vielen Features!
+**Deutsch:** BartsTOK ist eine App, die deinen PC wach hält, die Maus bewegt und Bildschirm-Brand verhindert. Verfügbar als **WPF-App für Windows** oder als **Python Qt Quick/QML-Version** für Windows, Linux und macOS!
 
-**English:** BartsTOK is a WPF app for Windows that keeps your PC awake, moves the mouse, and prevents screen burn. Featuring dancing Bart GIFs and tons of features!
+**English:** BartsTOK is an app that keeps your PC awake, moves the mouse, and prevents screen burn. Available as a **WPF app for Windows** or as a **Python Qt Quick/QML version** for Windows, Linux, and macOS!
 
-Willkommen bei **BartsTOK**! 🚀 Diese coole WPF-Anwendung für Windows (.NET 9) hält deinen Computer wach, bewegt die Maus und verhindert Bildschirm-Brand. Inspiriert von den genialen Projekten "movemouse" und "burnstok" von sgrottl. Vielen Dank an sgrottl für die Inspiration! 🙏
+Willkommen bei **BartsTOK**! 🚀 Diese Anwendung hält deinen Computer wach, bewegt die Maus und verhindert Bildschirm-Brand. Inspiriert von den genialen Projekten "movemouse" und "burnstok" von sgrottl. Vielen Dank an sgrottl für die Inspiration! 🙏
+
+## 🆕 Neue Python/QML Version verfügbar!
+
+**BartsTOK ist jetzt auch als Python Qt Quick/QML Version verfügbar!**
+
+✨ **Neu in der Python-Version:**
+- 🌍 **Cross-Platform**: Läuft auf Windows, Linux und macOS
+- 🎨 **Modernes UI**: Qt Quick/QML mit Hardware-Beschleunigung
+- 🐍 **Python-basiert**: Einfach zu erweitern und anzupassen
+- 🚀 **Schneller Start**: Ein Befehl genügt (siehe [python_qml/](python_qml/))
+
+**Schnellstart für die Python-Version:**
+```bash
+cd python_qml
+./quickstart.sh    # Linux/Mac
+quickstart.bat     # Windows
+```
+
+📚 **Dokumentation**: Siehe [PYTHON_QML_PORT.md](PYTHON_QML_PORT.md) und [python_qml/README.md](python_qml/README.md)
+
+---
+
+## 🎯 Zwei Versionen zur Auswahl:
+
+| Feature | C# WPF Version | Python QML Version |
+|---------|----------------|-------------------|
+| **Plattform** | Windows | Windows, Linux, macOS |
+| **UI Framework** | WPF/XAML | Qt Quick/QML |
+| **Installation** | .NET 9 SDK | Python 3.8+ |
+| **Status** | ✅ Vollständig | ✅ Kern-Features fertig |
+| **Verzeichnis** | `/` (Root) | `/python_qml/` |
+
+---
 
 ## 🔄 Neueste Änderungen / Latest changes
 
 <!-- CHANGELOG:START -->
-Noch keine eingebetteten Einträge. Siehe vollständige Historie in [CHANGELOG.md](CHANGELOG.md).
+## [1.1 alpha] - 2025-11-17
+
+Deutsch
+- **NEU: Python Qt Quick/QML Version**
+  - Vollständige Portierung der Benutzeroberfläche nach Python Qt Quick/QML
+  - Cross-Platform Support: Windows, Linux, macOS
+  - 4 komplett portierte Fenster: MainWindow, MoveMouseWindow, AdvancedSettingsWindow, AboutWindow
+  - Text-Automatisierung mit 3 Tastatur-Backends (pynput, pyautogui, keyboard)
+  - Einstellungs-Persistenz (JSON, kompatibel mit C# Version)
+  - Umfassende Dokumentation (7 Dokumente, 1.500+ Zeilen)
+  - Schnellstart-Scripts für einfache Installation
+  - Verzeichnis: `python_qml/`
+- Status Python-Version:
+  - ✅ Kern-Features: Text-Automatisierung, Einstellungen, Timer, Logging
+  - ⏳ In Entwicklung: Maus-Bewegung Backend, System-Tray, Scheduler Backend
+
+English
+- **NEW: Python Qt Quick/QML Version**
+  - Complete port of user interface to Python Qt Quick/QML
+  - Cross-platform support: Windows, Linux, macOS
+  - 4 fully ported windows: MainWindow, MoveMouseWindow, AdvancedSettingsWindow, AboutWindow
+  - Text automation with 3 keyboard backends (pynput, pyautogui, keyboard)
+  - Settings persistence (JSON, compatible with C# version)
+  - Comprehensive documentation (7 documents, 1,500+ lines)
+  - Quick-start scripts for easy installation
+  - Directory: `python_qml/`
+- Python version status:
+  - ✅ Core features: Text automation, settings, timers, logging
+  - ⏳ In development: Mouse movement backend, system tray, scheduler backend
 <!-- CHANGELOG:END -->
 
 ## ✨ Features - Was kann BartsTOK?
+
+> **Hinweis**: Die folgenden Features sind vollständig in der **C# WPF Version** implementiert. Die **Python QML Version** hat alle UI-Elemente portiert, aber einige erweiterte Features sind noch in Entwicklung. Siehe [python_qml/README.md](python_qml/README.md) für Details.
 
 ### 🖱️ Maus-Bewegung (Move Mouse)
 - **Kreisförmige oder zufällige Bewegung**: Lass die Maus im Kreis drehen oder zufällig herumwandern.
@@ -60,6 +125,8 @@ Hier ein paar coole GIFs und Screenshots von BartsTOK in Aktion:
 
 ## 🚀 Installation & Setup
 
+### Option 1: C# WPF Version (Windows)
+
 1. **Voraussetzungen**:
    - Windows 10/11
    - .NET 9 SDK (kostenlos von [Microsoft](https://dotnet.microsoft.com/download))
@@ -77,6 +144,32 @@ Hier ein paar coole GIFs und Screenshots von BartsTOK in Aktion:
    ```
    Oder öffne `BartsTOK.sln` in Visual Studio und drücke F5.
 
+### Option 2: Python QML Version (Windows, Linux, macOS)
+
+1. **Voraussetzungen**:
+   - Python 3.8 oder höher
+   - pip (Python Package Manager)
+
+2. **Schnellstart**:
+   ```bash
+   cd python_qml
+   ./quickstart.sh    # Linux/Mac
+   quickstart.bat     # Windows
+   ```
+   
+   Der Quickstart-Script erstellt automatisch eine virtuelle Umgebung, installiert alle Abhängigkeiten und startet die App!
+
+3. **Manuelle Installation** (optional):
+   ```bash
+   cd python_qml
+   python -m venv venv
+   source venv/bin/activate  # oder venv\Scripts\activate auf Windows
+   pip install -r requirements.txt
+   python main.py
+   ```
+
+📚 **Mehr Infos zur Python-Version**: Siehe [python_qml/README.md](python_qml/README.md)
+
 ## 📖 Verwendung / Usage
 
 ### Schnellstart:
@@ -92,11 +185,17 @@ Hier ein paar coole GIFs und Screenshots von BartsTOK in Aktion:
 
 ## 🛠️ Entwicklung / Development
 
-### Projekt-Struktur:
+### C# WPF Version - Projekt-Struktur:
 - `MainWindow.xaml/cs`: Hauptfenster & Core-Logik.
 - `MoveMouseWindow.xaml/cs`: Maus-Bewegungs-Fenster.
 - `AdvancedSettingsWindow.xaml/cs`: Einstellungen-Dialog.
 - `SettingsManager.cs`: Persistenz für Einstellungen.
+
+### Python QML Version - Projekt-Struktur:
+- `python_qml/main.py`: Haupteinstiegspunkt & Controller.
+- `python_qml/qml/*.qml`: UI-Definitionen (MainWindow, MoveMouseWindow, etc.).
+- `python_qml/core/settings_manager.py`: Einstellungs-Persistenz.
+- 📚 Siehe [python_qml/ARCHITECTURE.md](python_qml/ARCHITECTURE.md) für Details.
 
 ### Beitragen:
 1. Fork das Repo.
