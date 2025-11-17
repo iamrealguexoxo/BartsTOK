@@ -8,7 +8,7 @@ from pathlib import Path
 
 from PySide6.QtCore import QObject, Signal, Slot, QTimer, Property, QUrl
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtQml import QQmlApplicationEngine, QQmlComponent
 
 try:
     import pyautogui
@@ -32,8 +32,10 @@ class MainWindowController(QObject):
     logAdded = Signal(str)
     runningStateChanged = Signal(bool)
     
-    def __init__(self):
+    def __init__(self, engine: QQmlApplicationEngine):
         super().__init__()
+        
+        self._engine = engine
         
         # State variables
         self._is_running = False
@@ -63,6 +65,11 @@ class MainWindowController(QObject):
         
         # Log entries
         self._log_entries: List[str] = []
+        
+        # Child windows
+        self._about_window = None
+        self._move_mouse_window = None
+        self._advanced_settings_window = None
     
     # Properties
     @Property(str, notify=statusChanged)
@@ -263,17 +270,59 @@ class MainWindowController(QObject):
     @Slot()
     def open_move_mouse_window(self):
         """Open the Move Mouse window."""
-        self.add_log("ℹ MoveBart-Fenster öffnen (noch nicht implementiert)")
+        try:
+            if self._move_mouse_window is None:
+                qml_file = Path(__file__).parent / "qml" / "MoveMouseWindow.qml"
+                component = QQmlComponent(self._engine, QUrl.fromLocalFile(str(qml_file)))
+                self._move_mouse_window = component.create()
+                if self._move_mouse_window:
+                    self.add_log("✓ MoveBart-Fenster geöffnet")
+                else:
+                    self.add_log(f"❌ Fehler beim Laden: {component.errorString()}")
+            else:
+                # Show existing window
+                self._move_mouse_window.setProperty("visible", True)
+                self.add_log("✓ MoveBart-Fenster angezeigt")
+        except Exception as e:
+            self.add_log(f"❌ Fehler beim Öffnen von MoveBart: {e}")
     
     @Slot()
     def open_advanced_settings(self):
         """Open advanced settings window."""
-        self.add_log("ℹ Erweiterte Einstellungen öffnen (noch nicht implementiert)")
+        try:
+            if self._advanced_settings_window is None:
+                qml_file = Path(__file__).parent / "qml" / "AdvancedSettingsWindow.qml"
+                component = QQmlComponent(self._engine, QUrl.fromLocalFile(str(qml_file)))
+                self._advanced_settings_window = component.create()
+                if self._advanced_settings_window:
+                    self.add_log("✓ Erweiterte Einstellungen geöffnet")
+                else:
+                    self.add_log(f"❌ Fehler beim Laden: {component.errorString()}")
+            else:
+                # Show existing window
+                self._advanced_settings_window.setProperty("visible", True)
+                self.add_log("✓ Erweiterte Einstellungen angezeigt")
+        except Exception as e:
+            self.add_log(f"❌ Fehler beim Öffnen der Einstellungen: {e}")
     
     @Slot()
     def open_about(self):
         """Open about window."""
-        self.add_log("ℹ Über-Fenster öffnen (noch nicht implementiert)")
+        try:
+            if self._about_window is None:
+                qml_file = Path(__file__).parent / "qml" / "AboutWindow.qml"
+                component = QQmlComponent(self._engine, QUrl.fromLocalFile(str(qml_file)))
+                self._about_window = component.create()
+                if self._about_window:
+                    self.add_log("✓ Über-Fenster geöffnet")
+                else:
+                    self.add_log(f"❌ Fehler beim Laden: {component.errorString()}")
+            else:
+                # Show existing window
+                self._about_window.setProperty("visible", True)
+                self.add_log("✓ Über-Fenster angezeigt")
+        except Exception as e:
+            self.add_log(f"❌ Fehler beim Öffnen des Über-Fensters: {e}")
 
 
 def main():
@@ -282,11 +331,11 @@ def main():
     app.setOrganizationName("BartsTOK")
     app.setApplicationName("BartsTOK")
     
-    # Create controller
-    controller = MainWindowController()
-    
     # Create QML engine
     engine = QQmlApplicationEngine()
+    
+    # Create controller with engine reference
+    controller = MainWindowController(engine)
     
     # Expose controller to QML
     engine.rootContext().setContextProperty("controller", controller)

@@ -55,10 +55,14 @@ def test_structure():
         "main.py",
         "requirements.txt",
         "README.md",
+        "ARCHITECTURE.md",
+        ".gitignore",
         "core/__init__.py",
         "core/settings_manager.py",
         "qml/MainWindow.qml",
         "qml/AboutWindow.qml",
+        "qml/MoveMouseWindow.qml",
+        "qml/AdvancedSettingsWindow.qml",
     ]
     
     errors = []
