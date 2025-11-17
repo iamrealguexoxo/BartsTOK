@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1 alpha] - 2025-11-17
+
+Deutsch
+- **NEU: Python Qt Quick/QML Version**
+  - Vollständige Portierung der Benutzeroberfläche nach Python Qt Quick/QML
+  - Cross-Platform Support: Windows, Linux, macOS
+  - 4 komplett portierte Fenster: MainWindow, MoveMouseWindow, AdvancedSettingsWindow, AboutWindow
+  - Text-Automatisierung mit 3 Tastatur-Backends (pynput, pyautogui, keyboard)
+  - Einstellungs-Persistenz (JSON, kompatibel mit C# Version)
+  - Umfassende Dokumentation (7 Dokumente, 1.500+ Zeilen)
+  - Schnellstart-Scripts für einfache Installation
+  - Verzeichnis: `python_qml/`
+- Status Python-Version:
+  - ✅ Kern-Features: Text-Automatisierung, Einstellungen, Timer, Logging
+  - ⏳ In Entwicklung: Maus-Bewegung Backend, System-Tray, Scheduler Backend
+
+English
+- **NEW: Python Qt Quick/QML Version**
+  - Complete port of user interface to Python Qt Quick/QML
+  - Cross-platform support: Windows, Linux, macOS
+  - 4 fully ported windows: MainWindow, MoveMouseWindow, AdvancedSettingsWindow, AboutWindow
+  - Text automation with 3 keyboard backends (pynput, pyautogui, keyboard)
+  - Settings persistence (JSON, compatible with C# version)
+  - Comprehensive documentation (7 documents, 1,500+ lines)
+  - Quick-start scripts for easy installation
+  - Directory: `python_qml/`
+- Python version status:
+  - ✅ Core features: Text automation, settings, timers, logging
+  - ⏳ In development: Mouse movement backend, system tray, scheduler backend
+
 ## [1.0 alpha] - 2025-11-02
 
 Deutsch
