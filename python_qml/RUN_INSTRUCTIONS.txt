@@ -1,0 +1,103 @@
+==============================================================================
+BartsTOK Python/QML - How to Run
+==============================================================================
+
+QUICK START (Recommended):
+--------------------------
+
+Linux/Mac:
+  cd python_qml
+  ./quickstart.sh
+
+Windows:
+  cd python_qml
+  quickstart.bat
+
+The script will:
+1. Create a virtual environment
+2. Install all dependencies
+3. Test the structure
+4. Launch the application
+
+
+MANUAL INSTALLATION:
+-------------------
+
+1. Install Python 3.8 or higher
+   - Download from: https://www.python.org/downloads/
+
+2. Create virtual environment:
+   python -m venv venv
+
+3. Activate virtual environment:
+   - Linux/Mac:   source venv/bin/activate
+   - Windows:     venv\Scripts\activate
+
+4. Install dependencies:
+   pip install -r requirements.txt
+
+5. Run the application:
+   python main.py
+
+
+DEPENDENCIES:
+-------------
+- PySide6 (Qt 6 bindings for Python)
+- pyautogui (optional, for GUI automation)
+- keyboard (optional, for keyboard control)
+- pynput (optional, for input control)
+
+
+TESTING:
+--------
+To validate the project structure:
+  python test_structure.py
+
+
+DOCUMENTATION:
+--------------
+- README.md              - User guide
+- ARCHITECTURE.md        - Technical documentation
+- COMPARISON.md          - C# vs Python comparison
+- PROJECT_SUMMARY.md     - Project overview
+- DELIVERY.md            - Delivery checklist
+
+
+TROUBLESHOOTING:
+----------------
+
+Problem: "No module named 'PySide6'"
+Solution: Run: pip install PySide6
+
+Problem: Script won't run
+Solution: Make sure Python 3.8+ is installed
+
+Problem: Permission denied on quickstart.sh
+Solution: Run: chmod +x quickstart.sh
+
+Problem: Application won't start
+Solution: Check that all dependencies are installed
+
+
+FEATURES:
+---------
+✓ Text automation with configurable speed
+✓ Multiple keyboard backends (pynput, pyautogui, keyboard)
+✓ Settings persistence
+✓ Dark theme UI
+✓ Cross-platform (Windows, Linux, Mac)
+✓ F1/F2 keyboard shortcuts
+
+
+SUPPORT:
+--------
+For issues or questions, refer to:
+1. README.md for basic usage
+2. ARCHITECTURE.md for technical details
+3. test_structure.py to validate setup
+
+
+==============================================================================
+Version: 1.0.0-alpha
+Last Updated: 2025-11-17
+==============================================================================
